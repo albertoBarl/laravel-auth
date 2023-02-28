@@ -41,10 +41,9 @@ class ProjectController extends Controller
     {
         $data = $request->all();
 
+        $slug = Project::genSlug($request->title);
+        $data["slug"] = $slug;
         $newProject = new Project();
-
-        $data["slug"] = Str::slug($newProject->title, "-");
-
         $newProject->fill($data);
         $newProject->save();
 
