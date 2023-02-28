@@ -42,10 +42,10 @@ class ProjectController extends Controller
         $data = $request->all();
 
         $newProject = new Project();
-        $newProject->title = $data["title"];
-        $newProject->content = $data["content"];
+
         $data["slug"] = Str::slug($newProject->title, "-");
-        $newProject->slug = $data["slug"];
+
+        $newProject->fill($data);
         $newProject->save();
 
         return redirect()->route("admin.projects.index");
