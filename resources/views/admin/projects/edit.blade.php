@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div id="create-project">
-        <form action="{{ route('admin.projects.store') }}" method="POST"
+    <div id="edit-project">
+        <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="POST"
             class="d-flex flex-column justify-content-center p-5">
             @csrf
             <div class="mb-3">
